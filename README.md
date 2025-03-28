@@ -29,10 +29,38 @@ This project processes legislative data to generate insights about legislators a
 3. Run the application:
 
     ```bash
-    dotnet run -- <path-to-bills.csv> <path-to-legislators.csv> <path-to-votes.csv> <path-to-vote_results.csv>
+    dotnet run
     ```
 
-4. The output files will be generated in the output/ folder.
+4. Interact with the application to have the input files processed.
+
+    ```bash
+    Welcome to the Quorum Coding Challenge!
+    This program processes legislative data and generates reports based on legislators' votes and bills.
+
+    Enter the folder path containing the input CSV files:
+    > D:\input-files
+
+    The following CSV files were found:
+    1. legislators.csv
+    2. votes.csv
+    3. vote_results.csv
+    4. bills.csv
+
+    Select the file for legislators:
+    > 1
+    Select the file for votes:
+    > 2
+    Select the file for vote results:
+    > 3
+    Select the file for bills:
+    > 4
+
+    Enter the folder path where the output files should be saved:
+    > D:\output-files
+
+    Processing complete! The output files have been saved to the specified folder.
+    ```
 
 ### Folder Structure
 
