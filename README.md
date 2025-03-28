@@ -1,74 +1,61 @@
 # Quorum Coding Challenge
 
-## Overview
+## Project Description
 
-This project processes legislative data to generate insights about legislators and bills. It outputs two CSV files:
+This project processes legislative data to generate reports based on legislators' votes and bills. It takes input CSV files containing information about legislators, bills, votes, and vote results, processes the data, and outputs CSV reports summarizing the results.
 
-1. `legislators-support-oppose-count.csv`: Contains the number of bills supported and opposed by each legislator.
-2. `bills.csv`: Contains the number of legislators supporting and opposing each bill, along with the primary sponsor.
+The application is designed to:
 
-## Prerequisites
+- Calculate the number of bills supported and opposed by each legislator.
+- Calculate the number of legislators supporting and opposing each bill, along with identifying the primary sponsor of each bill.
 
-- .NET 9 SDK installed.
+## Instructions to Run the Application
 
-## How to Run
+### Prerequisites
+
+- .NET 9 SDK installed on your machine.
+- Input CSV files for `legislators`, `bills`, `votes`, and `vote_results`.
+
+### Steps to Run
 
 1. Clone the repository:
 
-   ```bash
-   git clone https://github.com/your-username/QuorumCodingChallenge.git
-   cd QuorumCodingChallenge/src/QuorumCodingChallenge
-   ```
+    ```bash
+    git clone https://github.com/matheus-vieira/QuorumCodingChallenge.git
+    cd QuorumCodingChallenge
+    ```
 
 2. Build the project:
 
-   ```bash
+    ```bash
     dotnet build
     ```
 
-3. Run the application:
+3. Run the application
 
     ```bash
-    dotnet run
+    dotnet run --project src/QuorumCodingChallenge
     ```
 
-4. Interact with the application to have the input files processed.
+4. Follow the interactive prompts:
+   - Provide the folder path containing the input CSV files.
+   - Select the appropriate files for legislators, bills, votes, and vote_results.
+   - Specify the folder path where the output files should be saved.
 
-    ```bash
-    Welcome to the Quorum Coding Challenge!
-    This program processes legislative data and generates reports based on legislators' votes and bills.
+5. Check the output folder for the generated CSV files:
 
-    Enter the folder path containing the input CSV files:
-    > D:\input-files
+- `legislators-support-oppose-count.csv`
+- `bills.csv`
 
-    The following CSV files were found:
-    1. legislators.csv
-    2. votes.csv
-    3. vote_results.csv
-    4. bills.csv
+## Implementation explanation
 
-    Select the file for legislators:
-    > 1
-    Select the file for votes:
-    > 2
-    Select the file for vote results:
-    > 3
-    Select the file for bills:
-    > 4
+As required in the challenge there's [Solution file](/docs/solution.md) that answer the challenge questions:
 
-    Enter the folder path where the output files should be saved:
-    > D:\output-files
+1. Discuss your solution’s time complexity. What tradeoffs did you make?
+2. How would you change your solution to account for future columns that might be requested, such as “Bill Voted On Date” or “Co-Sponsors”?
+3. How would you change your solution if instead of receiving CSVs of data, you were given a list of legislators or bills that you should generate a CSV for?
+4. How long did you spend working on the assignment?
 
-    Processing complete! The output files have been saved to the specified folder.
-    ```
+To better handle the development I added a [tasks file](/docs/README.md).
 
-### Folder Structure
-
-- src/: Contains the source code.
-- docs/: Contains documentation.
-- output/: Contains generated CSV files.
-- data/: Contains sample input files.
-
-### Documentation
-
-See the [docs/README.md](docs/README.md) file for detailed answers to the challenge questions.
+This tasks file was the start point to organize the development of the challenge.
