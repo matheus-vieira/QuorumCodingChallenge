@@ -2,30 +2,29 @@
 
 
 using QuorumCodingChallenge.Parsers;
-using System.Linq;
 
-string directoryPath = @"D:\tests\quorum\Quorum_Coding_Challenge\Quorum Coding Challenge - Candidate Folder";
+string inputPath = @"D:\github\matheus-vieira\QuorumCodingChallenge\input-files";
 string fileExtension = "*.csv"; // Change to your desired extension
+string outputPath = @"D:\github\matheus-vieira\QuorumCodingChallenge\output-files";
 
-string[] files = Directory.GetFiles(directoryPath, fileExtension);
+string[] files = Directory.GetFiles(inputPath, fileExtension);
 
+var legislators = new List<QuorumCodingChallenge.Models.Person>();
+var votes = new List<QuorumCodingChallenge.Models.Vote>();
+var votesResult = new List<QuorumCodingChallenge.Models.VoteResult>();
+var bills = new List<QuorumCodingChallenge.Models.Bill>();
 
 foreach (string file in files)
 {
-    Console.WriteLine(file);
-    Console.WriteLine();
-
     if (file.EndsWith("legislators.csv"))
-        Console.WriteLine(string.Join(Environment.NewLine, file.ToPerson()[..1]));
+        legislators = file.ToPerson();
     else if (file.EndsWith("votes.csv"))
-        Console.WriteLine(string.Join(Environment.NewLine, file.ToVote()[..1]));
+        votes = file.ToVote();
     else if (file.EndsWith("vote_results.csv"))
-        Console.WriteLine(string.Join(Environment.NewLine, file.ToVoteResult()[..1]));
-    else
-        Console.WriteLine("Invalid file");
-
-    Console.WriteLine();
-    Console.WriteLine("-------------------------------------------------");
-    Console.WriteLine();
+        votesResult = file.ToVoteResult();
+    else if (file.EndsWith("bills.csv"))
+        bills = file.ToBill();
 }
 
+QuorumCodingChallenge.Services.LegislatorService.CalculateSupportAndOpposition(outputPath, legislators, votesResult);
+QuorumCodingChallenge.Services.BillService.CalculateBillStatistics(outputPath, bills, votesResult, votes, legislators);

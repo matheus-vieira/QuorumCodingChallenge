@@ -11,4 +11,7 @@ public static class Parser
 
     public static List<Models.VoteResult> ToVoteResult(this string filePath)
         => Utilities.CsvReader.ReadCsv<Models.VoteResult>(filePath, fields => fields);
+
+    public static List<Models.Bill> ToBill(this string filePath)
+        => Utilities.CsvReader.ReadCsv<Models.Bill>(filePath, fields => fields);
 }

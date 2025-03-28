@@ -10,13 +10,10 @@ public class Vote
         if (fields.Length < 2)
             throw new ArgumentException("The input fields array does not contain the required number of elements.");
 
-        _ = int.TryParse(fields[0], out int id);
-        _ = int.TryParse(fields[1], out int billId);
-
         return new()
         {
-            Id = id,
-            BillId = billId
+            Id = int.Parse(fields[0]),
+            BillId = int.Parse(fields[1])
         };
     }
 }
